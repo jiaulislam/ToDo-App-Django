@@ -135,3 +135,4 @@ lib/
 lib64/
 pyvenv.cfg
 lib64
+.vscode/
