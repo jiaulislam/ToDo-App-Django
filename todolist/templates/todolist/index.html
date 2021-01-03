@@ -3,8 +3,21 @@
 {% block title %}Tasks {% endblock %}
 
 {% block content %}
-    <h1 class="h1 text-center">Hello from Index Page</h1>
+    <form method="post">
+        {% csrf_token %}
+            {{ task_form.title }}
+            <button type="submit">Create</button>
+    </form>
+    <ol>
+        {% for task in tasks %}
+            <li>
+                {% if task.completed == True %}
+                    <strike> {{ task.title }} </strike>
+                {% else %}
+                    {{ task.title }}
+                {% endif %} 
+                 <a href="{% url 'update_task' task.id %}">Update</a> | <a href="{% url 'delete_task' task.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ol>
 {% endblock %}
-
-
-
