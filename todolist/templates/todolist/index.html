@@ -3,21 +3,37 @@
 {% block title %}Tasks {% endblock %}
 
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
-            {{ task_form.title }}
-            <button type="submit">Create</button>
-    </form>
-    <ol>
-        {% for task in tasks %}
-            <li>
-                {% if task.completed == True %}
-                    <strike> {{ task.title }} </strike>
-                {% else %}
-                    {{ task.title }}
-                {% endif %} 
-                 <a href="{% url 'update_task' task.id %}">Update</a> | <a href="{% url 'delete_task' task.id %}">Delete</a>
-            </li>
-        {% endfor %}
-    </ol>
+<div class="card">
+    <div class="card-header">
+        <h1 class="text-center">TODO LIST</h1>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+                <div class="input-group mb-3">
+                        {{ task_form.title }}
+                    <button type="submit" class="btn btn-primary btn-lg rounded-0">ADD</button>
+                </div>
+        </form>
+    </div>
+</div>
+
+
+<h4 class="bg-warning text-light py-2 rounded text-center mt-3 mb-0 rounded-0">My Tasks</h4>
+
+<ul class="list-group">
+    {% for task in tasks %}
+    <li class="list-group-item list-group-item-action">
+        {% if task.completed == True %}
+        <strike> {{ task.title }} </strike>
+        {% else %}
+        {{ task.title }}
+        {% endif %}
+        <div class="float-right">
+            <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
+            <a class="btn btn-sm btn-danger" href="{% url 'delete_task' task.id %}">Delete</a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
 {% endblock %}

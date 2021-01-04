@@ -1,13 +1,28 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Update Task
+Update Task
 {% endblock %}
 
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
-        {{ task_edit_form}}
-        <button type="submit">Update</button>
-    </form>
+<div class="card">
+    <div class="card-header">
+        <h1 class="text-center">TODO UPDATE</h1>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <!-- <input type="radio" aria-label="Radio button for following text input"> -->
+                        {{ task_edit_form.completed }}
+                    </div>
+                </div>
+                    {{ task_edit_form.title}}
+                    <button class="btn btn-lg btn-info rounded-0" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}
