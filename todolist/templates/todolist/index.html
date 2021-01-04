@@ -23,7 +23,7 @@
 
 <ul class="list-group">
     {% for task in tasks %}
-    <li class="list-group-item list-group-item-action">
+    <li class="list-group-item list-group-item-action rounded-0">
         {% if task.completed == True %}
         <strike> {{ task.title }} </strike>
         {% else %}
