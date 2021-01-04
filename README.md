@@ -1,5 +1,8 @@
 # ToDo-App-Django
-A Simple todo app to learn Django
+
+Building a simple CRUD application "TODO APP" to understand how django works and the Concepts of Views, Models, Meta Class,
+building urls etc.
+
 
 ### TODO List:
 ![alt text](https://github.com/jiaulislam/ToDo-App-Django/blob/master/todolist/static/images/1.png?raw=true)
