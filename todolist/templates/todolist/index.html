@@ -10,7 +10,7 @@
     <div class="card-body">
         <form method="post">
             {% csrf_token %}
-                <div class="input-group mb-3">
+                <div class="input-group">
                         {{ task_form.title }}
                     <button type="submit" class="btn btn-primary btn-lg rounded-0">ADD</button>
                 </div>
